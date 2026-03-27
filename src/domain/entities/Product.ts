@@ -1,0 +1,49 @@
+import type { UUID } from "node:crypto";
+
+class Product {
+    private name!: string;
+    private price!: number;
+    private id?: UUID;
+    
+    constructor(name: string, price: number);
+
+    constructor(name: string, price: number, id: UUID);
+
+    constructor(name: string, price: number, id?: UUID) {
+        this.name = name;
+        this.price = price;
+        if (id !== undefined) {
+            this.id = id;
+        }
+    }
+
+    
+    getName(): string {
+        return this.name;
+    }
+
+    setName(name: string): void {
+        this.name = name;
+    }
+
+    getPrice(): number {
+        return this.price;
+    }
+
+    setPrice(price: number): void {
+        this.price = price;
+    }
+
+    getId(): UUID | undefined {
+        return this.id;
+    }
+
+    setId(id: UUID): void {
+        this.id = id;
+    }
+}
+
+export default Product;
+
+
+
